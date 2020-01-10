@@ -25,5 +25,6 @@ install:
 
 script:
   - docker-compose ps -a
+  - sh mongo-replset-init.sh
   - docker-compose run --rm tests ./vendor/bin/phpunit --coverage-clover ./clover.xml
   - docker-compose ps -a

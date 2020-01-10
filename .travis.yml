@@ -25,7 +25,4 @@ install:
 
 script:
   - docker-compose up -d
-  - docker-compose ps -a
-  - sh mongo-replset-init.sh
   - docker-compose run tests ./vendor/bin/phpunit tests/TransactionBuilderTest.php
-  - docker-compose ps -a

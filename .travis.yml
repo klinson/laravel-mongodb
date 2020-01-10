@@ -24,7 +24,7 @@ install:
   - docker-compose run --rm tests composer install --no-interaction
 
 script:
-  - docker-compose up
+  - docker-compose up -d
   - docker-compose ps -a
   - sh mongo-replset-init.sh
   - docker-compose run tests ./vendor/bin/phpunit tests/TransactionBuilderTest.php

@@ -24,4 +24,5 @@ install:
   - docker-compose run --rm tests composer install --no-interaction
 
 script:
+  - docker-compose ps -a
   - docker-compose run --rm tests ./vendor/bin/phpunit --coverage-clover ./clover.xml

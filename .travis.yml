@@ -32,4 +32,4 @@ before_script:
 
 script:
   - docker-compose up -d
-  - docker-compose run tests ./vendor/bin/phpunit
+  - docker-compose exec tests ./vendor/bin/phpunit

@@ -45,7 +45,7 @@ services:
             - 27017
         ports:
             - 27018:27017
-        command: '--quiet --bind_ip_all --replSet rs0'
+        command: '--quiet --bind_ip_all --ipv6 --replSet rs0'
 
     mongo2:
         hostname: mongo2
@@ -56,7 +56,7 @@ services:
             - 27017
         ports:
             - 27019:27017
-        command: '--quiet --bind_ip_all --replSet rs0'
+        command: '--quiet --bind_ip_all --ipv6 --replSet rs0'
 
     mongo3:
         hostname: mongo3
@@ -67,7 +67,7 @@ services:
             - 27017
         ports:
             - 27020:27017
-        command: '--quiet --bind_ip_all --replSet rs0'
+        command: '--quiet --bind_ip_all --ipv6 --replSet rs0'
 
     mongoreplret:
         build:

@@ -24,9 +24,9 @@ return [
             'database' => env('MONGO_DATABASE', 'unittest'),
             'options'  => [
                 'replicaSet' => 'rs0',
-                'connectTimeoutMS' => 10000,
-                'socketTimeoutMS' => 10000,
-                'serverSelectionTimeoutMS' => 30000,
+                'connectTimeoutMS' => 60000,
+                'socketTimeoutMS' => 60000,
+                'serverSelectionTimeoutMS' => 60000,
             ]
         ],
 

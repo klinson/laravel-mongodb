@@ -28,6 +28,7 @@ return [
                 'socketTimeoutMS' => 60000,
                 'serverSelectionTimeoutMS' => 60000,
                 'ssl' => false,
+                'serverSelectionTryOnce' => false,
             ]
         ],
 

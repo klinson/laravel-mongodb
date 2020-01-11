@@ -10,6 +10,12 @@ RUN apt-get update && \
     pecl install xdebug && docker-php-ext-enable xdebug && \
     docker-php-ext-install -j$(nproc) pdo_mysql zip
 
+RUN sudo /bin/su -c "echo 'net.ipv6.conf.all.disable_ipv6 = 1' >> /etc/sysctl.conf"
+RUN sudo /bin/su -c "echo 'net.ipv6.conf.lo.disable_ipv6 = 1' >> /etc/sysctl.conf"
+RUN sudo /bin/su -c "echo 'net.ipv6.conf.eth0.disable_ipv6 = 1' >> /etc/sysctl.conf"
+RUN sudo /bin/su -c "sysctl -p"
+RUN sudo /bin/su -c "/etc/init.d/network restart"
+
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
 WORKDIR /code

@@ -24,6 +24,7 @@ return [
             'database' => env('MONGO_DATABASE', 'unittest'),
             'options'  => [
                 'replicaSet' => 'rs0',
+                'serverSelectionTryOnce' => false,
             ]
         ],
 

@@ -31,5 +31,4 @@ before_script:
       fi
 
 script:
-  - docker-compose up -d
-  - docker-compose exec tests ./vendor/bin/phpunit
+  - docker-compose run --rm tests ./vendor/bin/phpunit --coverage-clover ./clover.xml

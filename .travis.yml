@@ -21,8 +21,15 @@ install:
   - sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   - docker-compose version
   - docker-compose build --build-arg PHP_VERSION=${PHP_VERSION}
-  - docker-compose run tests composer install --no-interaction
+  - docker-compose run --rm tests composer install --no-interaction
+
+before_script:
+  # Add an IPv6 config - see the corresponding Travis issue
+  # https://github.com/travis-ci/travis-ci/issues/8361
+  - if [ "${TRAVIS_OS_NAME}" == "linux" ]; then
+      sudo sh -c 'echo 0 > /proc/sys/net/ipv6/conf/all/disable_ipv6';
+    fi
 
 script:
- - docker-compose up -d
- - docker-compose exec tests ./vendor/bin/phpunit
+  - docker-compose up -d
+  - docker-compose exec tests ./vendor/bin/phpunit
